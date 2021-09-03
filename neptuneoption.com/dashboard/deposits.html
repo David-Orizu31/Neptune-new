@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- START: Head-->
+
+<head>
+        <meta charset="UTF-8">
+        <title>NEPTUNE OPTION | User panel</title>
+        <link rel="shortcut icon" href="../dist/images/favicon.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1"> 
+
+        <!-- START: Template CSS-->
+        <link rel="stylesheet" href="../dist/vendors/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../dist/vendors/jquery-ui/jquery-ui.min.css">
+        <link rel="stylesheet" href="../dist/vendors/jquery-ui/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="../dist/vendors/simple-line-icons/css/simple-line-icons.css"> 
+        <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+        <!-- END Template CSS-->
+
+        <!-- START: Page CSS-->   
+        <link rel="stylesheet" href="../dist/vendors/morris/morris.css"> 
+        <link rel="stylesheet" href="../dist/vendors/weather-icons/css/pe-icon-set-weather.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/chartjs/Chart.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/starrr/starrr.css">  
+        <link rel="stylesheet" href="../dist/vendors/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../dist/vendors/ionicons/css/ionicons.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/cryptofont/cryptofont.css"> 
+
+       
+        <!-- END: Page CSS-->
+
+        <!-- START: Custom CSS-->
+        <link rel="stylesheet" href="../dist/css/main.css">
+                <script>
+             
+jQuery(document).ready(function($) {
+  $(".toggle").click(function() {
+    $(".toggle").toggleClass("active");
+    $("body").toggleClass("night");
+    $.cookie("toggle", $(".toggle").hasClass('active'));
+  });
+
+  if ($.cookie("toggle") == "true") {
+    $(".toggle").addClass("active");
+    $("body").addClass("night");
+  }
+});
+        </script>
+        <!-- END: Custom CSS-->
+    </head>
+    <!-- END Head-->
+    <!-- START: Body-->
+    <body id="main-container" class="default">
+        <!-- START: Pre Loader-->
+        <div class="se-pre-con">
+            <img src="../dist/images/logo-1.png" alt="logo" width="20" class="img-fluid"/>
+        </div>
+        <!-- END: Pre Loader-->
+         <form id="logout-form" action="#" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="oDPOJEfYsBZZIfSv146S9waI6pvD8EDXt9DjLGbX">
+                    </form>
+        <!-- START: Header-->
+        <div id="header-fix" class="header fixed-top">
+            <nav class="navbar navbar-expand-lg  p-0">
+                <div class="navbar-header h4 mb-0 align-self-center d-flex">  
+                    <a class="horizontal-logo align-self-center d-flex d-lg-none">
+                         <span class="h5 align-self-center mb-0 ">iPONGDEV</span>              
+                    </a>
+                    <a href="#" class="sidebarCollapse ml-2" id="collapse"><i class="icon-menu body-color"></i></a>
+                </div>
+                <div class="d-inline-block position-relative">
+                    <button id="tourfirst" data-toggle="dropdown" aria-expanded="false" class="btn btn-primary p-2 rounded mx-3 h4 mb-0 line-height-1 d-none d-lg-block">
+                        <span class="text-white font-weight-bold h5"><span class="icon-wallet mr-2 h6  mb-0"></span>&#36;0.00</span></button>
+                
+                </div>
+
+                
+                <div class="navbar-right ml-auto">
+                    <ul class="ml-auto p-0 m-0 list-unstyled d-flex">
+        
+                        <li class="mr-1 d-inline-block my-auto"><h6>				   <a><font color="red"></font></a><br> <a href="#" data-toggle="modal" data-target="#verifyModal"><font color="red">VERIFY ACCOUNT</font></a>
+				    				    </h6></li>
+                        
+                        <li class="mr-1 d-inline-block my-auto d-block d-lg-none">
+                           </i>                               
+                            </a>
+                        </li>                        
+                        
+                        
+                         
+                         
+                          <!-- Notification Page-->  
+                        <li class="dropdown align-self-center mr-1 d-inline-block">
+                            <a href="#" class="nav-link px-2" data-toggle="dropdown" aria-expanded="false"><i class="icon-bell h4"></i>
+                                <span class="badge badge-default"> <span class="ring">
+                                    </span><span class="ring-point">
+                                    </span> </span>
+                            </a>
+                            
+                            <ul class="dropdown-menu dropdown-menu-right border   py-0">
+                                <li>
+                                    <a class="dropdown-item px-2 py-2 border border-top-0 border-left-0 border-right-0" href="#">
+                                        <div class="media">
+                                            <img src="../images/logo.png" alt="" class="d-flex mr-3 img-fluid rounded-circle w-50">
+                                            <div class="media-body">
+                                                <h6>Welcome</h6>
+                                                <hr>
+                                               <p class="mb-0 text-success"> From Admin</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                         <!-- End Notification-->  
+                         
+                         
+                          <!-- START: Header Profile-->  
+                        <li class="dropdown user-profile d-inline-block py-1 mr-2">
+                            <a href="#" class="nav-link px-2 py-0" data-toggle="dropdown" aria-expanded="false"> 
+                                <div class="media">
+                                    <div class="media-body align-self-center d-none d-sm-block mr-2">
+                                        <p class="mb-0 text-uppercase line-height-1"><b>Matthew Rutherford</b><br/><span> </span></p>
+
+                                    </div>
+                                             <img src="../profilep.png" alt=""  class="d-flex img-fluid rounded-circle" width="45">
+                                        </div>
+                            </a>
+                            
+                            <div class="dropdown-menu  dropdown-menu-right p-0">
+                                <a href="changepassword.html" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-pencil mr-2 h6 mb-0"></span> Profile</a>
+                                <a href="accountdetails.html" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-user mr-2 h6 mb-0"></span> Payment Details</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(Tawk_API.toggle())" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-support mr-2 h6  mb-0"></span> Help Center</a>
+                                    <div class="dropdown-divider"></div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item px-2 text-danger align-self-center d-flex">
+                                    <span class="icon-logout mr-2 h6  mb-0"></span> Sign Out</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- END: Header-->
+
+             
+
+        <!-- START: Main Menu-->
+        <div class="sidebar">
+            <a href="#" class="sidebarCollapse float-right h6 dropdown-menu-right mr-2 mt-2 position-absolute d-block d-lg-none">
+                <i class="icon-close"></i>
+            </a>
+            <!-- START: Logo-->
+            <a href="#" class="sidebar-logo d-flex">
+                <span class="h5 align-self-center mb-0">CRYPTO</span>        
+            </a>
+            <!-- END: Logo-->
+            
+            <!-- ADMIN: Menu START-->
+            
+                         <!-- ADMIN: Menu END-->
+             
+            <!-- USER: Menu STRAT-->
+                        <!-- START: Menu-->
+            <ul id="side-menu" class="sidebar-menu">
+                <li class="dropdown"><a href="dashboard.html"><i class="icon-home"></i>Dashboard</a> 
+                </li>
+                <li class="dropdown active"><a href="deposits.html"><i class="icon-wallet"></i>Fund Account</a>
+                </li>
+                <li class="dropdown"><a href="withdrawals.html"><i class="icon-basket"></i>Withdrawal</a>
+                </li>
+                 <li class="dropdown"><a href="mplans.html"><i class="icon-grid"></i>Upgrade</a>
+                <li class="dropdown"><a href="tradinghistory.html"><i class="icon-grid"></i>Trade History</a>
+                   <!--- <div> 
+                        <ul>
+                            <li><a href="https://neptuneoption.com/dashboard/mplans"><i class="icon-loop"></i> Activate Package</a></li>
+                            <li><a href="https://neptuneoption.com/dashboard/myplans"><i class="icon-eye"></i> Current Package</a></li>
+                            <li><a href="https://neptuneoption.com/dashboard/tradinghistory"><i class="icon-compass"></i> Transaction ROI</a></li>                        
+                        </ul> 
+                    </div>-->
+
+                </li>
+
+                <li class="dropdown"><a href="#"><i class="icon-user"></i>Profile</a>
+                    <div> 
+                        <ul>
+                            <li><a href="changepassword.html"><i class="icon-user-following"></i> Personal Account</a></li>
+                            <li><a href="accountdetails.html"><i class="icon-pencil"></i> Update Payment Details</a></li>
+                        </ul> 
+                    </div>
+
+                </li>
+                <li class="dropdown"><a href="referuser.html"><i class="icon-link"></i>Referral</a>
+                </li>
+                <li class="dropdown"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-logout"></i>Logout</a>
+                    
+                <li><a href="#"><i class=" "></i></a></li>
+
+                </li>
+                
+
+            </ul>
+                               <!-- END: Menu-->
+        </div>
+        <!-- END: Main Menu-->
+        
+<!-- ADMIN DISPLAY STARTS-->
+
+<!-- ADMIN DISPLAY ENDS-->
+<!-- USER DISPLAY STARTS-->
+
+
+
+<!-- START: Main Content-->
+<main>
+    <div class="container-fluid">
+        <!-- START: Breadcrumbs-->
+        <div class="row ">
+            <div class="col-12  align-self-center">
+                <div class="sub-header mt-3 py-3 px-3 align-self-center d-sm-flex w-100 rounded">
+                    <div class="w-sm-100 mr-auto"><h4 class="mb-0">Fund Account</h4></div>
+
+                    <ol class="breadcrumb bg-transparent align-self-center m-0 p-0">
+                        <li class="breadcrumb-item">Home</li>
+                        <li class="breadcrumb-item">Fund Account</li>
+                        <li class="breadcrumb-item active"><a href="#">Deposit</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- END: Breadcrumbs-->
+
+
+        
+ <!-- START: Card Data-->
+        <div class="row">
+            <div class="col-12 col-md-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="btn-group mb-2">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#depositModal">Make New Deposit</button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="example" class="display table dataTable table-striped table-bordered" >
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>AMOUNT</th>
+                                        <th>PAYMENT MODE</th>
+                                        <th>STATUS</th>
+                                        <th>DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                            </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>                                
+                </div><br><br><br>
+            </div>
+            
+
+<!-- send all users email -->
+    <div id="sendmailModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="modal-title" style="text-align:center;">Mail All Users On This Platform</h4>
+                <form style="padding:3px;" role="form" method="post" action="#">
+                       
+                       <textarea class="form-control" name="message" row="3" required=""></textarea><br/>
+                       
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                       <center><input type="submit" class="btn btn-primary" value="Send"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /send all users email Modal -->
+    
+    
+    <!-- Verify Modal -->
+    <div id="verifyModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+              <h4 class="modal-title" style="text-align:center;">USER VERIFICATION SYSTEM.</h4>
+              <center><p><font color="red">Upload required documents to get verified.</font></p></center>
+                <form style="padding:3px;" role="form" method="post" action="#"  enctype="multipart/form-data"><hr>
+                    <label>VALID IDENTITY CARD</label>
+                    <input type="file" name="id" required><hr>
+                       <label>USER FACIAL PASSPORT</label>
+                    <input type="file" name="passport" required><hr>
+                       
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                   <center>	<input type="submit" class="btn btn-primary" value="Submit documents"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Verify Modal -->
+    
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+              <h6 class="modal-title"><center><strong>ENTER AMOUNT TO DEPOSIT BELOW</strong></center></h6>
+                <form style="padding:3px;" role="form" method="post" action="#">
+                    
+                    <div class="col-auto">
+<label class="sr-only" for="inlineFormInputGroup">Username</label>
+<div class="input-group mb-2">
+<div class="input-group-prepend">
+  <div class="input-group-text">&#36;</div>
+</div>
+<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter amount here..." name="amount" required>
+</div>
+</div>
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                       <center><input type="submit" class="btn btn-primary" value="Continue"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /deposit Modal -->
+    
+    
+    <!-- Withdrawal method Modal -->
+    <div id="wmethodModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+               <h4 class="modal-title" style="text-align:center;">Add new withdrawal method</h4>
+                <form style="padding:3px;" role="form" method="post" action="#">
+                       <input style="padding:5px;" class="form-control" placeholder="Enter method name" type="text" name="name" required><br/>
+                       <input style="padding:5px;" class="form-control" placeholder="Minimum amount $" type="text" name="minimum" required><br/>
+                       <input style="padding:5px;" class="form-control" placeholder="Maximum amount $" type="text" name="maximum" required><br/>
+                       <input style="padding:5px;" class="form-control" placeholder="Charges (Fixed amount $)" type="text" name="charges_fixed" required><br/>
+                       <input style="padding:5px;" class="form-control" placeholder="Charges (Percentage %)" type="text" name="charges_percentage" required><br/>
+                       <input style="padding:5px;" class="form-control" placeholder="Payout duration" type="text" name="duration" required><br/>
+                       <select name="status" class="form-control">
+                           <option value="">Select action</option> 
+                           <option value="enabled">Enable</option> 
+                           <option value="disabled">Disable</option> 
+                       </select><br/>
+                     <input type="hidden" name="type" value="withdrawal">
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                   <center>	<input type="submit" class="btn btn-primary" value="Continue"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /withdrawal method Modal -->
+
+
+                <!-- Withdrawal Modal -->
+    <div id="withdrawalModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+              <h4 class="modal-title" style="text-align:center;">ENTER AMOUNT BELOW</h4>
+                <form style="padding:3px;" role="form" method="post" action="#">
+                       <input style="padding:5px;" class="form-control" placeholder="Enter amount here" type="text" name="amount" required><br/>
+                       
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                       <center><input type="submit" class="btn btn-primary" value="Submit"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Withdrawals Modal -->
+    
+        <!-- Deposit for a plan Modal -->
+                        <div id="topupModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <h4 class="modal-title" style="text-align:center;">Top up user account.</strong></h4>
+                                <form style="padding:3px;" role="form" method="post" action="#">
+                                    <input style="padding:5px;" class="form-control" value="" type="text" disabled><br/>
+                                    <input style="padding:5px;" class="form-control" placeholder="Enter amount to top up" type="text" name="amount" required><br/>
+                                    <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                                    <input type="hidden" name="user_id" value="">
+                                    <center><input type="submit" class="btn btn-primary" value="Credit account"></center>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /deposit for a plan Modal -->
+                    
+                                                        <!-- /Trading History Modal -->
+                            
+                            <div id="TradingModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                <div class="modal-body">
+                                <center><h4>Add Trading History for   </h4></center>
+                                
+                                        <form style="padding:3px;" role="form" method="post" action="#">
+                                        <input type="hidden" name="user_id" value="">
+
+                                        <div class="form-group">
+                                            <label>Investment Plans</label>
+                                            <select class="form-control" name="plan">
+                                            <option value="">Select Plan</option>
+                                                                                                </select>
+                                        </div>
+                                        <label>Amount</label>
+                                        <input type="number" name="amount" class="form-control">
+                                        <br>
+                                        <div class="form-group">
+                                            <label>Type</label>
+                                            <select class="form-control" name="type">
+                                            <option value="">Select type</option>
+                                            <option value="Bonus">Bonus</option>
+                                            <option value="ROI">ROI</option>
+                                            </select>
+                                        </div>
+                                            
+                                            <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                                            <input type="submit" class="btn btn-default" value="Add History">
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <!-- /send a single user email Modal -->
+                    
+                    <!-- send a single user email Modal-->
+                    <div id="sendmailtooneuserModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="text-align:center;">This message will be sent to   </h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                        <form style="padding:3px;" role="form" method="post" action="#">
+                                            <input type="hidden" name="user_id" value="">
+                                            <textarea class="form-control" name="message" row="3" required=""></textarea><br/>
+                                            
+                                            <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                                            <input type="submit" class="btn btn-default" value="Send">
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                    
+                    
+                    
+                    
+                    
+                    <!-- Reset user password Modal -->
+                    <div id="resetpswdModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <h4 class="modal-title" style="text-align:center;">You are reseting password for .</strong></h4>
+                            <p>Default password:</p>
+                            <h3>#Tr@de#</h3><br>
+                        <center>	<a class="btn btn-primary" href="https://neptuneoption.com/dashboard/resetpswd/">Proceed</a></center>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /Reset user password Modal -->
+                    
+                    <!-- Switch useraccount Modal -->
+                    <div id="switchuserModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-body">
+                                <h4 class="modal-title" style="text-align:center;">You are about to login as .</strong></h4>
+                        <center>	<a class="btn btn-primary" href="https://neptuneoption.com/dashboard/switchuser/">Proceed</a></center>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /Switch user account Modal -->
+                    
+                    
+                        <!-- Edit user Modal -->
+                        <div id="edituser" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-body">
+                        <h4 class="modal-title" style="text-align:center;">Edit 's Details.</strong></h4>
+                        
+                                <form style="padding:3px;" role="form" method="post" action="#">
+                                    <input style="padding:5px;" class="form-control" value="" type="text" disabled><br/>
+                                    <label>Full name</label>
+                                    <input style="padding:5px;" class="form-control" value="" type="text" name="name" required><br/>
+                                    <label>Email</label>
+                                    <input style="padding:5px;" class="form-control" value="" type="text" name="email" required><br/>
+                                    <label>Phone number</label>
+                                    <input style="padding:5px;" class="form-control" value="" type="text" name="phone" required><br/>
+                                    <label>Referral link</label>
+                                    <input style="padding:5px;" class="form-control" value="" type="text" name="ref_link" required><br/>
+                                    <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                                    <input type="hidden" name="user_id" value="">
+                                    <input type="submit" class="btn btn-default" value="Update user">
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /Edit user Modal -->
+
+                    <!-- Clear account Modal -->
+                    <div id="clearacctModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                        <div class="modal-body">
+                                <h4 class="modal-title" style="text-align:center;">You are clearing account for  to $0.00</strong></h4>
+                        <center>	<a class="btn btn-primary" href="https://neptuneoption.com/dashboard/clearacct/">Proceed</a></center>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /Clear account Modal -->
+
+                       <!-- Plans Modal -->
+    <div id="plansModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+                                  <h4 class="modal-title" style="text-align:center;">Add new plan / package</h4>
+
+      <form style="padding:3px;" role="form" method="post" action="https://neptuneoption.com/dashboard/addplan">
+                    <label>Plan name</label><br/>	
+                    <input style="padding:5px;" class="form-control" placeholder="Enter Plan name" type="text" name="name" required><br/>
+                         <label>Plan price</label><br/>
+                         <input style="padding:5px;" class="form-control" placeholder="Enter Plan price" type="text" name="price" required><br/>
+                         <label>Plan MIN. price</label><br/>		 
+                          <input style="padding:5px;" placeholder="Enter Plan minimum price" class="form-control" type="text" name="min_price" required><br/>
+                          <label>Plan MAX. price</label><br/>		 
+                          <input style="padding:5px;" class="form-control" placeholder="Enter Plan maximum price" type="text" name="max_price" required><br/>
+                         <label>Plan expected return (ROI)</label><br/>
+                         <input style="padding:5px;" class="form-control" placeholder="Enter expected return for this plan" type="text" name="return" required><br/>						 
+                                                     <label>top up interval</label><br/>
+                       <select class="form-control" name="t_interval">
+                                                                <option>Monthly</option>
+                                                                <option>Weekly</option>
+                                                                <option>Daily</option>
+                                                                <option>Hourly</option>
+                                                     </select><br>
+                                                     <label>top up type</label><br/>
+                       <select class="form-control" name="t_type">
+                                                                <option>Percentage</option>
+                                                                <option>Fixed</option>
+                                                     </select><br>
+                                                     <label>top up amount (in % or $ as specified above)</label><br/>
+                                                     <input style="padding:5px;" class="form-control" placeholder="top up amount" type="text" name="t_amount" required><br/>
+                                                     <label>Investment duration</label><br/>
+                       <select class="form-control" name="expiration">
+                                                                <option>One week</option>
+                                                                <option>One month</option>
+                                                            <option>Three months</option>	
+                                                                <option>Six months</option>
+                                                                <option>One year</option>
+                                                     </select><br>
+                       <input type="hidden" name="_token" value="GQLybt8Dz08lhPM4jyTCVKnGCCL62AUy9zRtUZjS">
+                   <center>	<input type="submit" class="btn btn-primary" value="Submit"></center>
+               </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /plans Modal -->
+
+    <!-- settings update Modal -->
+    <div id="s_updModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+                             <center>  <p><h4>UPDATE TRACKER</h4></p></center>
+        <hr>
+               <p><h5>LAST UPDATED BY: neptune option</h5> </p> 
+                <p><h5>TIME UPDATED: 2021-07-31 21:42:58</h5> </p> 
+                <hr>
+                <p><font color="red">If Data Was Updated By an impostor or none admin, please change admin login details Immediately.</font></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /settings update Modal -->
+</div>                                
+                </div>
+            </div>
+        </div>
+        <!-- END: Card DATA-->
+    </div>    
+       
+</main>
+<!-- END: Content-->
+<!--Start of Tawk.to Script-->
+<style>
+
+footer {
+background-color: #EAEDD0;
+text-align: center;
+width: 100%;
+position: fixed;
+bottom: 0;
+}
+</style>
+
+
+ <!-- START: Footer-->
+ <footer class="site-footer"><strong><font color="#000">Auto-Trade:</font><font color="green"> on</font>&nbsp;&nbsp; <font color="#000">Active Signal Fee:</font><font color="teal"> $0</font></strong>
+        
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</footer>
+<!-- END: Footer-->
+
+<!-- START: Template JS-->
+<script src="../dist/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script src="../dist/vendors/jquery-ui/jquery-ui.min.js"></script>
+<script src="../dist/vendors/moment/moment.js"></script>
+<script src="../dist/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>    
+<script src="../dist/vendors/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../dist/vendors/flag-select/js/jquery.flagstrap.min.js"></script> 
+<!-- END: Template JS-->
+
+<!-- START: APP JS-->
+<script src="../dist/js/app.js"></script>
+<!-- END: APP JS-->
+
+<!-- START: Page Vendor JS-->
+<script src="../dist/vendors/amcharts/core.js"></script>
+<script src="../dist/vendors/amcharts/charts.js"></script>
+<script src="../dist/vendors/amcharts/animated.js"></script>
+<script src="../dist/vendors/amcharts/amchartsdark.js"></script>
+<script src="../dist/vendors/amcharts/plugins/timeline.js"></script>
+<script src="../dist/vendors/amcharts/plugins/bullets.js"></script>
+<!-- END: Page Vendor JS-->
+
+<!-- START: Page Script JS-->
+<script src="../dist/js/amcharts.script.js"></script>
+<!-- END: Page Script JS-->
+<script src="https://code.tidio.co/pfnltncdtmylqsulvydzr6yblqhbxu1f.js" async></script>
+</body>
+<!-- END: Body-->
+</html>

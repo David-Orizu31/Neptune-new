@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- START: Head-->
+
+<head>
+        <meta charset="UTF-8">
+        <title>NEPTUNE OPTION | User panel</title>
+        <link rel="shortcut icon" href="../dist/images/favicon.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1"> 
+
+        <!-- START: Template CSS-->
+        <link rel="stylesheet" href="../dist/vendors/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../dist/vendors/jquery-ui/jquery-ui.min.css">
+        <link rel="stylesheet" href="../dist/vendors/jquery-ui/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="../dist/vendors/simple-line-icons/css/simple-line-icons.css"> 
+        <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+        <!-- END Template CSS-->
+
+        <!-- START: Page CSS-->   
+        <link rel="stylesheet" href="../dist/vendors/morris/morris.css"> 
+        <link rel="stylesheet" href="../dist/vendors/weather-icons/css/pe-icon-set-weather.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/chartjs/Chart.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/starrr/starrr.css">  
+        <link rel="stylesheet" href="../dist/vendors/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../dist/vendors/ionicons/css/ionicons.min.css"> 
+        <link rel="stylesheet" href="../dist/vendors/cryptofont/cryptofont.css"> 
+
+       
+        <!-- END: Page CSS-->
+
+        <!-- START: Custom CSS-->
+        <link rel="stylesheet" href="../dist/css/main.css">
+                <script>
+             
+jQuery(document).ready(function($) {
+  $(".toggle").click(function() {
+    $(".toggle").toggleClass("active");
+    $("body").toggleClass("night");
+    $.cookie("toggle", $(".toggle").hasClass('active'));
+  });
+
+  if ($.cookie("toggle") == "true") {
+    $(".toggle").addClass("active");
+    $("body").addClass("night");
+  }
+});
+        </script>
+        <!-- END: Custom CSS-->
+    </head>
+    <!-- END Head-->
+    <!-- START: Body-->
+    <body id="main-container" class="default">
+        <!-- START: Pre Loader-->
+        <div class="se-pre-con">
+            <img src="../dist/images/logo-1.png" alt="logo" width="20" class="img-fluid"/>
+        </div>
+        <!-- END: Pre Loader-->
+         <form id="logout-form" action="#" method="POST" style="display: none;">
+                        <input type="hidden" name="_token" value="oDPOJEfYsBZZIfSv146S9waI6pvD8EDXt9DjLGbX">
+                    </form>
+        <!-- START: Header-->
+        <div id="header-fix" class="header fixed-top">
+            <nav class="navbar navbar-expand-lg  p-0">
+                <div class="navbar-header h4 mb-0 align-self-center d-flex">  
+                    <a class="horizontal-logo align-self-center d-flex d-lg-none">
+                         <span class="h5 align-self-center mb-0 ">iPONGDEV</span>              
+                    </a>
+                    <a href="#" class="sidebarCollapse ml-2" id="collapse"><i class="icon-menu body-color"></i></a>
+                </div>
+                <div class="d-inline-block position-relative">
+                    <button id="tourfirst" data-toggle="dropdown" aria-expanded="false" class="btn btn-primary p-2 rounded mx-3 h4 mb-0 line-height-1 d-none d-lg-block">
+                        <span class="text-white font-weight-bold h5"><span class="icon-wallet mr-2 h6  mb-0"></span>&#36;0.00</span></button>
+                
+                </div>
+
+                
+                <div class="navbar-right ml-auto">
+                    <ul class="ml-auto p-0 m-0 list-unstyled d-flex">
+        
+                        <li class="mr-1 d-inline-block my-auto"><h6>				   <a><font color="red"></font></a><br> <a href="#" data-toggle="modal" data-target="#verifyModal"><font color="red">VERIFY ACCOUNT</font></a>
+				    				    </h6></li>
+                        
+                        <li class="mr-1 d-inline-block my-auto d-block d-lg-none">
+                           </i>                               
+                            </a>
+                        </li>                        
+                        
+                        
+                         
+                         
+                          <!-- Notification Page-->  
+                        <li class="dropdown align-self-center mr-1 d-inline-block">
+                            <a href="#" class="nav-link px-2" data-toggle="dropdown" aria-expanded="false"><i class="icon-bell h4"></i>
+                                <span class="badge badge-default"> <span class="ring">
+                                    </span><span class="ring-point">
+                                    </span> </span>
+                            </a>
+                            
+                            <ul class="dropdown-menu dropdown-menu-right border   py-0">
+                                <li>
+                                    <a class="dropdown-item px-2 py-2 border border-top-0 border-left-0 border-right-0" href="#">
+                                        <div class="media">
+                                            <img src="../images/logo.png" alt="" class="d-flex mr-3 img-fluid rounded-circle w-50">
+                                            <div class="media-body">
+                                                <h6>Welcome</h6>
+                                                <hr>
+                                               <p class="mb-0 text-success"> From Admin</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                         <!-- End Notification-->  
+                         
+                         
+                          <!-- START: Header Profile-->  
+                        <li class="dropdown user-profile d-inline-block py-1 mr-2">
+                            <a href="#" class="nav-link px-2 py-0" data-toggle="dropdown" aria-expanded="false"> 
+                                <div class="media">
+                                    <div class="media-body align-self-center d-none d-sm-block mr-2">
+                                        <p class="mb-0 text-uppercase line-height-1"><b>Matthew Rutherford</b><br/><span> </span></p>
+
+                                    </div>
+                                             <img src="../profilep.png" alt=""  class="d-flex img-fluid rounded-circle" width="45">
+                                        </div>
+                            </a>
+                            
+                            <div class="dropdown-menu  dropdown-menu-right p-0">
+                                <a href="changepassword.html" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-pencil mr-2 h6 mb-0"></span> Profile</a>
+                                <a href="accountdetails.html" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-user mr-2 h6 mb-0"></span> Payment Details</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(Tawk_API.toggle())" class="dropdown-item px-2 align-self-center d-flex">
+                                    <span class="icon-support mr-2 h6  mb-0"></span> Help Center</a>
+                                    <div class="dropdown-divider"></div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item px-2 text-danger align-self-center d-flex">
+                                    <span class="icon-logout mr-2 h6  mb-0"></span> Sign Out</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- END: Header-->
+
+             
+
+        <!-- START: Main Menu-->
+        <div class="sidebar">
+            <a href="#" class="sidebarCollapse float-right h6 dropdown-menu-right mr-2 mt-2 position-absolute d-block d-lg-none">
+                <i class="icon-close"></i>
+            </a>
+            <!-- START: Logo-->
+            <a href="#" class="sidebar-logo d-flex">
+                <span class="h5 align-self-center mb-0">CRYPTO</span>        
+            </a>
+            <!-- END: Logo-->
+            
+            <!-- ADMIN: Menu START-->
+            
+                         <!-- ADMIN: Menu END-->
+             
+            <!-- USER: Menu STRAT-->
+                        <!-- START: Menu-->
+            <ul id="side-menu" class="sidebar-menu">
+                <li class="dropdown"><a href="dashboard.html"><i class="icon-home"></i>Dashboard</a> 
+                </li>
+                <li class="dropdown"><a href="deposits.html"><i class="icon-wallet"></i>Fund Account</a>
+                </li>
+                <li class="dropdown"><a href="withdrawals.html"><i class="icon-basket"></i>Withdrawal</a>
+                </li>
+                 <li class="dropdown"><a href="mplans.html"><i class="icon-grid"></i>Upgrade</a>
+                <li class="dropdown"><a href="tradinghistory.html"><i class="icon-grid"></i>Trade History</a>
+                   <!--- <div> 
+                        <ul>
+                            <li><a href="https://neptuneoption.com/dashboard/mplans"><i class="icon-loop"></i> Activate Package</a></li>
+                            <li><a href="https://neptuneoption.com/dashboard/myplans"><i class="icon-eye"></i> Current Package</a></li>
+                            <li><a href="https://neptuneoption.com/dashboard/tradinghistory"><i class="icon-compass"></i> Transaction ROI</a></li>                        
+                        </ul> 
+                    </div>-->
+
+                </li>
+
+                <li class="dropdown"><a href="#"><i class="icon-user"></i>Profile</a>
+                    <div> 
+                        <ul>
+                            <li><a href="changepassword.html"><i class="icon-user-following"></i> Personal Account</a></li>
+                            <li><a href="accountdetails.html"><i class="icon-pencil"></i> Update Payment Details</a></li>
+                        </ul> 
+                    </div>
+
+                </li>
+                <li class="dropdown active"><a href="referuser.html"><i class="icon-link"></i>Referral</a>
+                </li>
+                <li class="dropdown"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-logout"></i>Logout</a>
+                    
+                <li><a href="#"><i class=" "></i></a></li>
+
+                </li>
+                
+
+            </ul>
+                               <!-- END: Menu-->
+        </div>
+        <!-- END: Main Menu-->
+        
+<!-- ADMIN DISPLAY STARTS-->
+
+<!-- ADMIN DISPLAY ENDS-->
+<!-- USER DISPLAY STARTS-->
+
+<!-- START: Main Content-->
+<main>
+    <div class="container-fluid">
+        <!-- START: Breadcrumbs-->
+        <div class="row ">
+            <div class="col-12  align-self-center">
+                <div class="sub-header mt-3 py-3 px-3 align-self-center d-sm-flex w-100 rounded">
+                    <div class="w-sm-100 mr-auto"><h4 class="mb-0">Referral</h4></div>
+
+                    <ol class="breadcrumb bg-transparent align-self-center m-0 p-0">
+                        <li class="breadcrumb-item">Home</li>
+                        <li class="breadcrumb-item">Active</li>
+                        <li class="breadcrumb-item active"><a href="#">Referrals</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- END: Breadcrumbs-->
+        
+
+        <div class="row">
+            <div class="col-12 col-md-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="btn-group mb-2">
+                           Referral Link - <font color="red"><u>https://neptuneoption.com//ref/188</u></font>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="example" class="display table dataTable table-striped table-bordered" >
+                                <thead>
+                     <tr> 
+                        <th>CLIENT NAME</th>
+                        <th>CLIENT INV. PLAN</th>
+                        <th>CLIENT STATUS</th>
+                        <th>REF LEVEL</th>
+                        <th>DATE</th>
+                    </tr> 
+                                </thead>
+                                <tbody>
+                                                                    </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>                                
+                </div><br><br><br>
+            </div>
+
+
+</div>                                
+                </div>
+            </div>
+        </div>
+        <!-- END: Card DATA-->
+    </div>    
+       
+</main>
+
+
+<!-- END: Content-->
+<!--Start of Tawk.to Script-->
+<style>
+
+    footer {
+    background-color: #EAEDD0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    }
+    </style>
+    
+    
+     <!-- START: Footer-->
+     <footer class="site-footer"><strong><font color="#000">Auto-Trade:</font><font color="green"> on</font>&nbsp;&nbsp; <font color="#000">Active Signal Fee:</font><font color="teal"> $0</font></strong>
+            
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+    </footer>
+    <!-- END: Footer-->
+    
+    <!-- START: Template JS-->
+    <script src="../dist/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../dist/vendors/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../dist/vendors/moment/moment.js"></script>
+    <script src="../dist/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>    
+    <script src="../dist/vendors/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../dist/vendors/flag-select/js/jquery.flagstrap.min.js"></script> 
+    <!-- END: Template JS-->
+    
+    <!-- START: APP JS-->
+    <script src="../dist/js/app.js"></script>
+    <!-- END: APP JS-->
+    
+    <!-- START: Page Vendor JS-->
+    <script src="../dist/vendors/amcharts/core.js"></script>
+    <script src="../dist/vendors/amcharts/charts.js"></script>
+    <script src="../dist/vendors/amcharts/animated.js"></script>
+    <script src="../dist/vendors/amcharts/amchartsdark.js"></script>
+    <script src="../dist/vendors/amcharts/plugins/timeline.js"></script>
+    <script src="../dist/vendors/amcharts/plugins/bullets.js"></script>
+    <!-- END: Page Vendor JS-->
+    
+    <!-- START: Page Script JS-->
+    <script src="../dist/js/amcharts.script.js"></script>
+    <!-- END: Page Script JS-->
+    <script src="https://code.tidio.co/pfnltncdtmylqsulvydzr6yblqhbxu1f.js" async></script>
+    </body>
+    <!-- END: Body-->
+    </html>
+    
